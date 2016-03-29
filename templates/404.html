@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head_title %}Page Note Not Found{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/normalize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/error.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <div id="backgroundImage">
+        <div class="main">
+            <h2>Oops you've gone off-piste</h2>
+        </div>
+    </div>
+
+{% endblock %}

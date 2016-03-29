@@ -1,0 +1,150 @@
+{%  extends 'base.html' %}
+{%  load staticfiles %}
+
+{% block content %}
+<!-- Header -->
+
+<header>
+
+  <div class="parallax-window tall" data-parallax="scroll" data-image-src="{%  static 'img/austria/st_anton/stanton2.JPG' %}" data-speed="0.1">
+    <h1 class="logo">
+      Ski Deals
+    </h1>
+    <h3 class="tagline">Coming Soon...</h3>
+  </div>
+
+</header>
+
+<!-- Content -->
+
+<section class='lead container'>
+
+    <h2>Get The Deals You Want In Your Inbox</h2>
+  <section class="grid col-1-3">
+    <p>
+      Sign up to receive a welcome pack from Ski Deals.
+      If you like what you see, let us know what your preferences are.
+      That is, you tell us such things as:
+    <ul class="fa-ul">
+      <li><i class="fa-li fa fa-check-square"></i>What resorts you want to travel to</li>
+      <li><i class="fa-li fa fa-check-square"></i>What type of holiday you want</li>
+      <li><i class="fa-li fa fa-check-square"></i>Where you would like to travel from</li>
+      <li><i class="fa-li fa fa-check-square"></i>How many people are joining</li>
+      <li><i class="fa-li fa fa-check-square"></i>What level skiers you are</li>
+    </ul>
+    <p>
+      We'll trawl the net to find the best deals available,
+      and then send you an email with the best deals we can find.
+    </p>
+  </section><!--
+--><section class="grid col-1-3">
+    <p>
+      Once we know your requirements, then with your permission we'll send you other interesting information relevant
+      to your preferences to help make your snow trips even better.
+    </p>
+    <p>
+      Sound like a good free service?  Then sign up and we'll get cracking on delivering you the best ski deals around.
+    </p>
+  </section><!--
+--><form class="col-1-3" action="#registered" method="POST" id="registered">
+    {% csrf_token %}
+    <fieldset class="signup">
+      {{ form.as_p }}
+    </fieldset>
+
+      <!--      <label>Name:
+        <input type="text" name="name" placeholder="Name" required>
+      </label>
+      <label>Email:
+        <input type="email" name="email" placeholder="name@domain.com" required>
+      </label> -->
+    <input class="btn btn-default" type="submit" name="submit" value="Comment">
+    {% if email %}
+      <div>
+        <p><small>Registered! Look out soon for ski deals sent to {{ email.email }}</small></p>
+      </div>
+    {% endif %}
+  </form>
+
+</section>
+
+<section>
+
+  <div class="parallax-window small" data-parallax="scroll" data-image-src="{%  static 'img/vid_bg.jpg' %}" data-speed="0.1">
+
+    <!-- /YOUTUBE VIDEO-->
+    <!--<div id="vid">
+      <video autoplay muted loop autobuffer poster="static/img/vid_bg.jpg" id="bgvid">
+        <source src="https://www.youtube.com/watch?v=hktUJlOgqf4" />
+        <source src="static/videos/bg.webm" type="video/webm">
+        <source src="static/videos/bg.ogv" type='video/ogg; codecs="theora, vorbis"'/>
+        <source src="static/videos/bg.mp4" type='video/mp4;'/>
+        <p>Video is not visible, most likely your browser does not support HTML5 video</p>
+      </video>
+    </div>-->
+  </div>
+
+</section>
+
+<section class="row">
+  <div class="grid"><!--
+ --><section class="teaser col-1-3" id="perisher">
+      <div class="teaser-profile">
+        <a href="perisher"/>
+          <img src="{% static 'img/australia/perisher_560x396.jpg' %}" class="img-responsive" alt="perisher"/>
+          <h2>Perisher</h2>
+        </a>
+        <p>
+        Perisher (known as Perisher Blue until 2009) is the largest ski resort in the Southern Hemisphere.
+        Located in the Australian Snowy Mountains, the resort is an amalgamation of four villages
+        (Perisher Valley, Smiggin Holes, Guthega, and Blue Cow) and their associated ski fields,
+        covering approximately 12 square kilometres (5 sq mi), with the base elevation at 1,720 metres (5,640 ft)
+        AHD, and the summit elevation of 2,054 metres (6,739 ft) at the top of Mount Perisher.
+        About 240 snow guns cover t4.4 square kilometres (1.7 sq mi) of this area to artificially supplement the natural snowfall.
+        Perisher was acquired by Vail Resorts, USA on March 30, 2015 for a sum of approximately AU$177 million.
+        </p>
+      </div>
+    </section><!--
+ --><section class="teaser col-1-3" id="thredbo">
+      <div class="teaser-profile">
+        <a href="thredbo"/>
+          <img src="{% static 'img/australia/thredbo_560x396.jpg' %}" class="img-responsive" alt="thredbo"/>
+          <h2>Thredbo</h2>
+        </a>
+        <p>
+        Thredbo is a village and ski resort (36°30′S 148°18′E) in the Snowy Mountains of New South Wales,
+        Australia, and a part of the Snowy River Shire. It is about 500 kilometres south of Sydney,
+        accessible by the Alpine Way via Cooma, Berridale, and Jindabyne.
+        The village is built in the valley of the Thredbo River, also known as the Crackenback River,
+        at the foot of the Ramshead Range.
+        The town has around 4,150 beds, but a permanent population of only about 471 people.
+        When the mountain is fully covered by snow, Thredbo has the longest ski runs in Australia,
+        and this attracts around 700,000 winter visitors annually.
+        In summer, Thredbo is a hiking and summer sport destination, including rock climbing and abseiling,
+        fishing and cross-country cycling, and hosts a blues music festival, boasting approximately 300,000
+        summer visitors (Figures are as of 2005).
+        </p>
+      </div>
+    </section><!--
+ --><section class="teaser col-1-3" id="charlotte-pass">
+      <div class="teaser-profile">
+        <a href="charlotte-pass"/>
+          <img src="{% static 'img/australia/charlotte-pass_560x396.jpg' %}" class="img-responsive" alt="charlotte-pass"/>
+          <h2>Charlotte Pass</h2>
+        </a>
+        <p>
+        Situated in the heart of the NSW Snowy Mountains, Charlotte Pass Snow Resort offers ski-in ski-out
+        accommodation and facilities. Completely snowbound at the top of Australia, Charlotte Pass is only
+        accessible by Oversnow Transport. At 1765 metres, Charlotte Pass is Australia's highest resort,
+        and consequently receives some of the most consistent snowfalls delivering the best quality natural
+        snow. Whether you’re a beginner testing out your snow legs on Easy Starter, an intermediate carving
+        up Kosi Coaster, an experienced skier looking for adventure on Sidewinder or a hardcore rider after
+        an adrenalin rush at Guthrie’s Chutes.
+        </p>
+      </div>
+    </section>
+  </div>
+</section>
+
+{% endblock %}
+

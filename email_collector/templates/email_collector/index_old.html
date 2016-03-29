@@ -1,0 +1,175 @@
+{%  extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/video.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<header class="jumbotron">
+
+    <div class="container" id="banner">
+        <div class='col-sm-6 col-sm-offset-3'>
+
+            <h1>Ski Deals</h1>
+            <h2>Coming Soon...</h2>
+
+        </div>
+    </div>
+
+    <div class='container' id="signup" >
+        <div class='col-sm-6 col-sm-offset-3'>
+            <p class='lead'>Get the best Ski Deals delivered to your email</p>
+            <form class='form-horizontal' method="POST" action="">
+            {% csrf_token %}
+            <div class='form-group form-group-lg'>
+            {#                    {% if form.email.errors %}#}
+            {#                         {% for err in form.email.errors %}#}
+            {#                            <div class="alert alert-danger" role="alert">{{ err }}</div>#}
+            {#                            <div class="alert alert-danger" role="alert">Your Email is required</div>#}
+            {#                        {% endfor %}#}
+            {#                    {% endif %}#}
+                <div class="input-group">
+                    <input class='form-control' type="email" name="email_address" placeholder="Your email..." />
+                    <span class='input-group-btn'>
+                    <input type='submit' value='Join' class='btn btn-primary btn-lg' />
+                    </span>
+                </div>
+            </div>
+            </form>
+            {% if email %}
+            <p><small>Registered! Look out soon for ski deals sent to {{ email.email_address }}</small></p>
+            {% endif %}
+
+        </div>
+
+        <div class='col-sm-6 col-sm-offset-3'>
+            <div id="vid">
+                <button class='btn btn-xs' id="vidpause">Watch The Video</button>
+                <video loop poster="{% static 'img/sd_bg.jpg' %}" id="bgvid">
+                    <source src="{% static 'videos/bg.webm' %}" type="video/webm">
+                    <source src="{% static 'videos/bg.ogv' %}" type='video/ogg; codecs="theora, vorbis"'/>
+                    <source src="{% static 'videos/bg.mp4' %}" type='video/mp4;'/>
+                    <p>Video is not visible, most likely your browser does not support HTML5 video</p>
+                </video>
+            </div>
+        </div>
+
+    </div>
+
+</header>
+
+<div class='row feature-row'>
+  <div class='col-sm-12'>
+    <div class='col-sm-6 col-sm-offset-3 picture-info'>
+      <h2>How It Works</h2>
+      <p class='lead'>
+        Sign up to receive a welcome pack from Ski Deals.</br>
+        If you like what you see, let us know what your preferences are.</br>
+        That is, you tell us:
+        <ul>
+            <li>what resorts you want to travel to</li>
+            <li>what type of holiday you want</li>
+            <li>how many people are joining</li>
+            <li>what level of skiers you are</li>
+        </ul>
+      <p class='lead'>
+        We'll then send you an email with the best deals we can find.</br>
+        Our team trawls the net constantly to find the best deals available.
+      </p>
+      <p class='lead'>
+        Once we know your requirements, we'll also try to send you interesting information aligned
+          to your requirements to help make your snow trips even better
+          </br>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid feature-row">
+    <div class='row feature-row'>
+    {#  <div class='col-sm-12'>#}
+{#        <div class="row">#}
+
+<section class="row">
+  <div class="grid"><!--
+          Speakers
+  --><div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 img-caption'>
+      <span>
+      <img src="{% static 'img/australia/perisher_350x300.jpg' %}" class='img-responsive' />
+      </span>
+      <h2>Perisher</h2>
+      <p>
+      Perisher (known as Perisher Blue until 2009) is the largest ski resort in the Southern Hemisphere.
+      Located in the Australian Snowy Mountains, the resort is an amalgamation of four villages
+      (Perisher Valley, Smiggin Holes, Guthega, and Blue Cow) and their associated ski fields,
+      covering approximately 12 square kilometres (5 sq mi), with the base elevation at 1,720 metres (5,640 ft)
+      AHD, and the summit elevation of 2,054 metres (6,739 ft) at the top of Mount Perisher.
+      About 240 snow guns cover t4.4 square kilometres (1.7 sq mi) of this area to artificially supplement the natural snowfall.
+      Perisher was acquired by Vail Resorts, USA on March 30, 2015 for a sum of approximately AU$177 million.
+      </p>
+      </div>
+
+            <div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 img-caption'>
+                <img src="{% static 'img/australia/thredbo_350x300.jpg' %}" class='img-responsive' />
+                <h2>Thredbo</h2>
+                <p>
+                Thredbo is a village and ski resort (36°30′S 148°18′E) in the Snowy Mountains of New South Wales,
+                Australia, and a part of the Snowy River Shire. It is about 500 kilometres south of Sydney,
+                accessible by the Alpine Way via Cooma, Berridale, and Jindabyne.
+                The village is built in the valley of the Thredbo River, also known as the Crackenback River,
+                at the foot of the Ramshead Range.
+                The town has around 4,150 beds, but a permanent population of only about 471 people.
+                When the mountain is fully covered by snow, Thredbo has the longest ski runs in Australia,
+                and this attracts around 700,000 winter visitors annually.
+                In summer, Thredbo is a hiking and summer sport destination, including rock climbing and abseiling,
+                fishing and cross-country cycling, and hosts a blues music festival, boasting approximately 300,000
+                summer visitors (Figures are as of 2005).
+                </p>
+            </div>
+
+            <div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 img-caption'>
+    {#            <img src="http://placehold.it/charlot350x500">#}
+                <img src="{% static 'img/australia/charlotte-pass_350x300.jpg' %}" class='img-responsive' />
+                <h2>Charlotte Pass</h2>
+                <p>
+                Situated in the heart of the NSW Snowy Mountains, Charlotte Pass Snow Resort offers ski-in ski-out
+                accommodation and facilities. Completely snowbound at the top of Australia, Charlotte Pass is only
+                accessible by Oversnow Transport. At 1765 metres, Charlotte Pass is Australia's highest resort,
+                and consequently receives some of the most consistent snowfalls delivering the best quality natural
+                snow. Whether you’re a beginner testing out your snow legs on Easy Starter, an intermediate carving
+                up Kosi Coaster, an experienced skier looking for adventure on Sidewinder or a hardcore rider after
+                an adrenalin rush at Guthrie’s Chutes.
+                </p>
+            </div>
+
+{#        </div>#}
+    {#  </div>#}
+    </div>
+</div>
+
+<div class='row feature-row'>
+  <div class='col-sm-12'>
+
+
+  </div>
+</div>
+
+
+<script>
+$( document ).ready(function() {
+    var heights = $(".x").map(function() {
+        return $(this).height();
+    }).get(),
+
+    maxHeight = Math.max.apply(null, heights);
+
+    $(".x").height(maxHeight);
+});
+</script>
+{% endblock %}
+
