@@ -2,6 +2,7 @@ from django.shortcuts import render
 from email_collector.models import ProspectiveUser
 from geo import google
 from .forms import ProspectiveUserForm, SignupForm
+from models import Resort
 
 # Create your views here.
 
@@ -41,7 +42,8 @@ def handle_form(request):
         # prospective_user, created = ProspectiveUser.objects.get_or_create(email=email, name=name, ip_address=ip_address)
         prospective_user.save()
 
-    context = {'form': form}
+    resorts = Resort.objects.all()
+    context = {'form': form, 'resort_list': resorts}
     return render(request, 'email_collector/index.html', context)
 
     # if request.method == 'GET':
@@ -57,8 +59,9 @@ def handle_form(request):
         # return render(request, 'email_collector/index.html', context)
 
 
-def get_perisher(request):
-    return render(request, 'email_collector/perisher.html', {'name': 'perisher' })
+def get_resort(request, id):
+    resort = Resort.objects.get(pk=id)
+    return render(request, 'email_collector/perisher.html', {'resort': resort })
 
 
 def map_url():

@@ -18,6 +18,6 @@ from email_collector.views import *
 
 urlpatterns = [
     url(r'^$', handle_form, name='home'),
-    url(r'^perisher$', get_perisher, name='perisher'),
+    url(r'^resort/(?P<id>[0-9]+)$', get_resort, name='resort'),
 ]
 
