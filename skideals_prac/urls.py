@@ -15,9 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+
+admin.site.site_header = 'Ski Deals'
+admin.site.site_title = 'Ski Deals Title'
+admin.site.index_title = 'Administration Centre'
+
+admin.autodiscover()
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^login/$', auth_views.login,
+    {'template_name': 'admin/login.html', 'extra_context': {'site_header': 'Ski Deals'},},
+    name='login'),
     url(r'^', include('email_collector.urls'))
 ]

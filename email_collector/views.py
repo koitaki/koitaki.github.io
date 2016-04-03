@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from email_collector.models import ProspectiveUser
 from geo import google
-from .forms import ProspectiveUserForm, SignupForm
-from models import Resort
+from .forms import SignupForm
+from .models import Resort
 
 # Create your views here.
 
@@ -61,13 +61,7 @@ def handle_form(request):
 
 def get_resort(request, id):
     resort = Resort.objects.get(pk=id)
-    return render(request, 'email_collector/perisher.html', {'resort': resort })
+    return render(request, 'email_collector/resort-page.html', {'resort': resort })
 
-
-def map_url():
-    long   = 13.106564
-    lat    = 47.240813
-    resort = 'perisher'
-    return google.gMapURL(resort, long, lat)
 
 
