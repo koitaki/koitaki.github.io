@@ -69,8 +69,9 @@ class Resort(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100)
     description = models.TextField(blank=True)
-    thumbnail_picture = models.CharField(max_length=100, blank=True, null=True)
-    main_picture = models.CharField(max_length=100, blank=True, null=True)
+    thumbnail_picture = models.CharField(max_length=100, null=True, blank=True)
+    main_picture = models.CharField(max_length=100, null=True, blank=True)
+    website = models.URLField(max_length=200, null=True, blank=True)
     highest_lifted_point = models.IntegerField(null=True, blank=True)
     lowest_lifted_point = models.IntegerField(null=True, blank=True)
     base_height = models.IntegerField(null=True, blank=True)
@@ -107,3 +108,26 @@ class Resort(models.Model):
         osm_url = osm_url + str(self.latitude) + "/" + str(self.longitude)
         return osm_url
 
+
+class WebCam(models.Model):
+    resort = models.ForeignKey(Resort, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    weburl = models.URLField(max_length=200, null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.weburl
+
+class SkiSchool(models.Model):
+    resort = models.ForeignKey(Resort, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100)
+    description = models.TextField(blank=True)
+    weburl = models.URLField(max_length=200, null=True, blank=True)
+    phone = models.CharField(max_length = 15, blank=True)
+    email = models.EmailField(unique=True, null=True, blank=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name

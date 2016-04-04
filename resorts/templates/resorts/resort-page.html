@@ -38,6 +38,7 @@
     <div class="grid"><!--
 
    --><section class="col-1-2">
+      <h4>&nbsp;</h4>
           <p>{{ resort.description }}</p>
       </section><!--
 
@@ -73,7 +74,7 @@
             </tr>
             <tr>
               <th scope="row">
-                Base Height
+                Base Height (m)
               </th>
               <td colspan="2">
                 {{ resort.base_height }}
@@ -81,7 +82,7 @@
             </tr>
             <tr>
               <th scope="row">
-                Highest Lifted Point
+                Highest Lifted Point (m)
               </th>
               <td colspan="2">
                 {{ resort.highest_lifted_point }}
@@ -89,7 +90,7 @@
             </tr>
             <tr>
               <th scope="row">
-                Summit Height
+                Summit Height (m)
               </th>
               <td colspan="2">
                 {{ resort.summit_height }}
@@ -125,6 +126,24 @@
               </th>
               <td colspan="2">
                 {{ resort.season_open }} - {{ resort.season_close }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Web Site
+              </th>
+              <td colspan="2">
+                {{ resort.website }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Web Cams
+              </th>
+              <td colspan="2">
+                {% for cam in webcams %}
+                  <a href="{{ cam.weburl }}">{{ cam.resort.name }} - {{ cam.name }}</a><br/>
+                {% endfor %}
               </td>
             </tr>
 
