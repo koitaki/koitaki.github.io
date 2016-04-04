@@ -9,12 +9,12 @@ class SignupForm(ModelForm):
         model = ProspectiveUser
         fields = ('name', 'email')
         labels = {
-            'name': _('Name'),
-            'email': _('Email'),
+            'name': _(''),
+            'email': _(''),
         }
         widgets = {
-            'name': forms.TextInput(attrs={'placeholder': 'Your Name'}),
-            'email': forms.TextInput(attrs={'placeholder': 'Eg. jane@domain.com'}),
+            'name': forms.TextInput(attrs={'placeholder': 'Name'}),
+            'email': forms.TextInput(attrs={'placeholder': 'Email (eg. jane@domain.com)'}),
         }
         error_messages = {
             'name': {

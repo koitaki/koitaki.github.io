@@ -222,7 +222,7 @@ a:hover {
 
 .lead {
   text-align: left;
-  margin: 100px 0;
+  margin: 50px 0 50px;
 }
 
 .lead h2 {
@@ -270,9 +270,16 @@ a:hover {
 }
 
 .teaser h2, .teaser p {
-  color: #222;
   display: block;
   padding: 0 10px;
+}
+
+.teaser h2 {
+    color: #222;
+  font-family: Oswald;
+}
+.teaser p {
+  color: #666;
 }
 
 
@@ -284,9 +291,9 @@ a:hover {
 
 form {
   border-radius: 10px;
-  margin-bottom: 20px;
-  padding: 5px 0 20px;
-  background: rgba(255,255,255,0.1)
+  margin-bottom: 10px;
+  padding: 15px 10px 15px;
+  background: rgba(255,255,255,0.3)
 }
 
 input,
@@ -307,8 +314,8 @@ textarea {
   border-radius: 5px;
   color: #888;
   display: block;
-  margin: 5px 0 27px 0;
-  padding: 5px 8px;
+  margin: 5px 0;
+  padding: 5px 5px;
 }
 .signup input,
 .signup textarea {
@@ -390,8 +397,9 @@ textarea {
   border: 0px;
   background: #2795e9;
   color: #fff;
-  padding: 11px 30px;
+  padding: 10px 40px 10px 35px;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 .btn-default:hover {
@@ -415,17 +423,113 @@ textarea {
     height: auto;
 }
 
+
 /*
   ========================================
-  Footer
+  Stats Table
   ========================================
 */
 
-footer {
-  /*border-top: 2px solid #eee;*/
-  margin-top: 50px 0;
-  padding: 20px 0;
+table {
+  margin-top: 0;
+  margin-bottom: 50px;
+  width: 100%;
 }
+table:last-child {
+  margin-bottom: 0;
+}
+
+thead {
+  line-height: 44px;
+  border-bottom: 1px solid #dfe2e5;
+}
+thead th {
+  color: #fff;
+  font-size: 24px;
+}
+
+th,
+td {
+  padding-bottom: 5px;
+  vertical-align: top;
+}
+th {
+  padding-right: 45px;
+  text-align: left;
+  width: 30%;
+}
+td {
+  width: 40%;
+}
+
+tbody th {
+  color: #a9b2b9;
+  font-size: 14px;
+  font-weight: 400;
+  padding-top: 10px;
+  text-transform: uppercase;
+}
+
+tbody td {
+  color: #fff;
+  padding-top: 10px;
+  /*border-top: 1px solid #dfe2e5;*/
+}
+tbody td:first-of-type {
+  padding-right: 15px;
+}
+tbody td:last-of-type {
+  padding-left: 15px;
+}
+tbody td:only-of-type {
+  padding-left: 0;
+  padding-right: 0;
+}
+table a {
+  color: #888;
+}
+table h4 {
+  margin-bottom: 0;
+}
+
+.schedule-offset {
+  color: #fff;
+}
+
+/*
+  ========================================
+  Navbar
+  ========================================
+*/
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 50px;
+    border: 1px solid transparent;
+}
+
+.navbar-default{
+  background-color: #2e5d7e;
+  background: rgba(255,255,255,0.3)
+}
+
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+}
+
+.navbar-fixed-bottom, .navbar-fixed-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.primarynav {
+  background-color: rgba(255,255,255, 0.1)
+}
+
 
 .nav {
   text-align: center;
@@ -437,4 +541,17 @@ footer {
 }
 .nav li:last-child {
   margin-right: 0;
+}
+
+
+/*
+  ========================================
+  Footer
+  ========================================
+*/
+
+footer {
+  /*border-top: 2px solid #eee;*/
+  margin-top: 50px;
+  padding: 20px 0;
 }

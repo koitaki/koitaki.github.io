@@ -32,32 +32,35 @@
       <li><i class="fa-li fa fa-check-square"></i>How many people are joining</li>
       <li><i class="fa-li fa fa-check-square"></i>What level skiers you are</li>
     </ul>
-    <p>
-      We'll search the net to find the best deals available,
-      and then send you an email with the best deals we can find.
-    </p>
   </section><!--
 --><section class="grid col-1-3">
     <p>
-      Once we know your requirements, then with your permission we'll send you other interesting information relevant
-      to your preferences to help make your snow trips even better.
+      Once we know your requirements, we'll search the net to find the best deals available,
+      and then send you an email with the best deals we can find.
     </p>
     <p>
-      Sound like a good free service?  Then sign up and we'll get cracking on delivering you the best ski deals around.
+      With your permission, we'll also send you other interesting information relevant
+      to your preferences to help make your snow trips even better.
     </p>
   </section><!--
---><form class="col-1-3" action="#registered" method="POST" id="registered">
+--><section class="col-1-3">
+    <p>
+      Sound like a good free service?  Then sign up and we'll get cracking on delivering you the
+      best value ski deals around.
+    </p>
+    <form action="#registered" method="POST" id="registered">
     {% csrf_token %}
     <fieldset class="signup">
       {{ form.as_p }}
     </fieldset>
-    <input class="btn btn-default" type="submit" name="submit" value="Comment">
+    <input class="btn btn-default" type="submit" name="submit" value="Sign Up">
     {% if email %}
       <div>
         <p><small>Registered! Look out soon for ski deals sent to {{ email.email }}</small></p>
       </div>
     {% endif %}
-  </form>
+    </form>
+  </section>
 
 </section>
 
@@ -82,10 +85,14 @@
 <section class="row">
   <div class="grid"><!--
    {% for resort in resort_list %}
-    --><section class="teaser col-1-3" id="{% url 'resort' id="{{ resort.slug }}">
+    --><section class="teaser col-1-3" id="{% url 'resort' slug="{{ resort.slug }}">
       <div class="teaser-profile">
-        <a href="{% url 'resort' id=resort.id %}"/>
-          <img src="{% static 'img/' %}{{ resort.thumbnail_picture }}" class="img-responsive" alt="{{ resort.name }}"/>
+        <a href="{% url 'resort-slug' resort.slug %}"/>
+          {% if devmode %}
+            <img src="{% static 'img/australia/350x200.png' %}" width="100%"/>
+          {% else %}
+            <img src="{% static 'img/' %}{{ resort.thumbnail_picture }}" class="img-responsive" alt="{{ resort.name }}"/>
+          {% endif %}
           <h2>{{ resort.name }}</h2>
         </a>
         <h2>{{ resort.location.region.name }}</h2>

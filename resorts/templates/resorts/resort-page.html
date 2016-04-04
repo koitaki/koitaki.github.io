@@ -1,0 +1,155 @@
+{%  extends 'base.html' %}
+{%  load staticfiles %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<!-- Header -->
+
+  <header>
+
+    {% if devmode %}
+    <div class="parallax-window tall" data-parallax="scroll"
+         data-image-src="{% static 'img/australia/1500x700.png' %}" data-speed="0.1">
+    {% else %}
+    <div class="parallax-window tall" data-parallax="scroll"
+         data-image-src="{% static 'img/' %}{{ resort.main_picture }}" data-speed="0.1">
+    {% endif %}
+    </div>
+
+  </header>
+
+  <!-- Content -->
+
+  <section class='lead container'>
+
+    <nav class="navbar navbar-default">
+      <div class="nav primary-nav">
+        <ul>
+          <li><a href="/">Home</a></li><!--
+        --><li><a href="/">Resorts</a></li><!--
+        --><li><a href="/">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <h2>{{ resort.name }}</h2>
+    <div class="grid"><!--
+
+   --><section class="col-1-2">
+          <p>{{ resort.description }}</p>
+      </section><!--
+
+   --><section class="col-1-2">
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="row">
+                Resort Stats
+              </th>
+              <td class="schedule-offset" colspan="2">
+
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">
+                Region
+              </th>
+              <td class="schedule-offset" colspan="2">
+                {{ resort.location.area.region.name }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Area
+              </th>
+              <td colspan="2">
+                {{ resort.location.area.name }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Base Height
+              </th>
+              <td colspan="2">
+                {{ resort.base_height }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Highest Lifted Point
+              </th>
+              <td colspan="2">
+                {{ resort.highest_lifted_point }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Summit Height
+              </th>
+              <td colspan="2">
+                {{ resort.summit_height }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Lifts
+              </th>
+              <td colspan="2">
+                {{ resort.lifts_number }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Terrain Park
+              </th>
+              <td colspan="2">
+                {{ resort.terrain_parks }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Half Pipes
+              </th>
+              <td colspan="2">
+                {{ resort.halfpipes }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Season Open
+              </th>
+              <td colspan="2">
+                {{ resort.season_open }} - {{ resort.season_close }}
+              </td>
+            </tr>
+
+
+
+          </tbody>
+        </table>
+
+        <!-- OpenStreetMap -->
+        <iframe
+                width="100%"
+                height="350"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+                src="{{ resort.osm_embed_url }}"
+          >
+        </iframe>
+        <br/>
+        <small><a href="{{ resort.osm_url }}">View Larger Map</a></small>
+        <!-- End OpenStreetMap -->
+      </section>
+    </div>
+  </section>
+
+{% endblock %}
+

@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', auth_views.login,
     {'template_name': 'admin/login.html', 'extra_context': {'site_header': 'Ski Deals'},},
-    name='login'),
+      name='login'),
+    url(r'^resorts', include('resorts.urls')),
     url(r'^', include('email_collector.urls'))
 ]

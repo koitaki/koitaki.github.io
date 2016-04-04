@@ -24,6 +24,8 @@ SECRET_KEY = '9i+nkbbs-@%t)ukb4bek^402)p5mgw&gm&8krvyw4!uxzepl1r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+DEVMODE = True
+
 ALLOWED_HOSTS = ['127.0.0.1', ]
 
 # Application definition
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'email_collector',
+    'resorts',
 ]
 
 MIDDLEWARE_CLASSES = [

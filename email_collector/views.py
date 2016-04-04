@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from email_collector.models import ProspectiveUser
-from geo import google
 from .forms import SignupForm
-from .models import Resort
+from resorts.models import Resort
 
 # Create your views here.
 
@@ -21,47 +20,21 @@ def get_ip(request):
 
 def handle_form(request):
 
-    # This is using regular Django Forms
-    # form = ProspectiveUserForm(request.POST or None)
-    # if form.is_valid():
-    #     name = form.cleaned_data['name']
-    #     email = form.cleaned_data['email']
-    #     prospective_user, created = ProspectiveUser.objects.get_or_create(email=email, name=name)
-    #     print('Prospective User: {}'.format(prospective_user, created))
-    #     print('Was created: {}'.format(created))
-
     # This is using Model Forms
     form = SignupForm(request.POST or None)
     if form.is_valid():
         prospective_user = form.save(commit=False)
         prospective_user.ip_address = get_ip(request)
-
-        # name = form.cleaned_data['name']
-        # email = form.cleaned_data['email']
-        # ip_address = get_ip(request)
-        # prospective_user, created = ProspectiveUser.objects.get_or_create(email=email, name=name, ip_address=ip_address)
         prospective_user.save()
 
     resorts = Resort.objects.all()
-    context = {'form': form, 'resort_list': resorts}
+    context = {'form': form, 'resort_list': resorts, 'devmode': True}
     return render(request, 'email_collector/index.html', context)
-
-    # if request.method == 'GET':
-    #     return render(request, 'email_collector/index.html')
-    # if request.method == 'POST':
-    #     form = ProspectiveUserForm(request.POST or None)
-    #     context = {'form': form}
-
-        # name = ProspectiveUser(name=request.POST['name'])
-        # user = ProspectiveUser(email=request.POST['email'])
-        # user.save()
-        # return render(request, 'email_collector/index.html', {'email': user,'name': name })
-        # return render(request, 'email_collector/index.html', context)
 
 
 def get_resort(request, id):
     resort = Resort.objects.get(pk=id)
-    return render(request, 'email_collector/resort-page.html', {'resort': resort })
+    return render(request, 'resorts/resort-page.html', {'resort': resort })
 
 
 
