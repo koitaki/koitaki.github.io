@@ -74,6 +74,14 @@
             </tr>
             <tr>
               <th scope="row">
+                Terrain Size (ha)
+              </th>
+              <td colspan="2">
+                {{ resort.terrain_size }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
                 Base Height (m)
               </th>
               <td colspan="2">
@@ -122,6 +130,16 @@
             </tr>
             <tr>
               <th scope="row">
+                Ski Schools
+              </th>
+              <td colspan="2">
+                {% for school in skischools %}
+                  <a href="{{ school.weburl }}" target="_blank">{{ school.name }}</a><br/>
+                {% endfor %}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
                 Season Open
               </th>
               <td colspan="2">
@@ -133,7 +151,7 @@
                 Web Site
               </th>
               <td colspan="2">
-                {{ resort.website }}
+                <a href="{{ resort.website }}" target="_blank">{{ resort.website }}</>
               </td>
             </tr>
             <tr>
@@ -142,7 +160,7 @@
               </th>
               <td colspan="2">
                 {% for cam in webcams %}
-                  <a href="{{ cam.weburl }}">{{ cam.resort.name }} - {{ cam.name }}</a><br/>
+                  <a href="{{ cam.weburl }}" target="_blank">{{ cam.resort.name }} - {{ cam.name }}</a><br/>
                 {% endfor %}
               </td>
             </tr>

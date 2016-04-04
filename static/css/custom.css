@@ -15,10 +15,10 @@ body {
   ========================================
 */
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+*, *:before, *:after {
+    -webkit-box-sizing: border-box; /* Needed for mobile WebKit */
+    -moz-box-sizing: border-box; /* Needed for Firefox */
+    box-sizing: border-box
 }
 
 .container {
@@ -292,7 +292,7 @@ a:hover {
 form {
   border-radius: 10px;
   margin-bottom: 10px;
-  padding: 15px 10px 15px;
+  padding: 1em;
   background: rgba(255,255,255,0.3)
 }
 
@@ -315,18 +315,18 @@ textarea {
   color: #888;
   display: block;
   margin: 5px 0;
-  padding: 5px 5px;
+  padding: 0.5em 0.5em;
 }
 .signup input,
 .signup textarea {
   width: 100%;
 }
 .signup select {
-  height: 34px;
+  height: 2em;
   background: #fff;
 }
 .signup textarea {
-  height: 78px;
+  height: 6em;
 }
 
 
@@ -486,7 +486,7 @@ tbody td:only-of-type {
   padding-right: 0;
 }
 table a {
-  color: #888;
+  color: #fff;
 }
 table h4 {
   margin-bottom: 0;

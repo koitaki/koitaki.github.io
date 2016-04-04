@@ -4,10 +4,10 @@ from .models import Resort, Location, Area, Region, Country, Continent, WebCam, 
 
 @admin.register(Resort)
 class ResortAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug', 'updated']
+    order = ('name',)
     class Meta:
         model = Resort
-        order = ('name',)
-        list_display = ['name', 'slug', 'updated']
         fields = ['name',
                 'slug',
                 'main_picture',
@@ -38,9 +38,9 @@ class LocationAdmin(admin.ModelAdmin):
 @admin.register(Area)
 class AreaAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug', 'region', 'updated']
+    ordering = ('name',)
     class Meta:
         model = Area
-        ordering = ('name',)
 
 
 @admin.register(Region)
